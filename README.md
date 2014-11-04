@@ -2,6 +2,17 @@ ahkwowrotations
 ===============
 Only did Fury warrior... for now.
 
+INSTALATION
+==============
+Get autohotkey (google)
+Download stfwar.ahk to anywhere.
+Get weakauras 2 addon (google)
+Copy the string from weakaurasstring into weakauras2 ingame.
+Run stfwar.ahk (double click)
+press F12 while ingame to activate/desactivate.
+
+FAQ
+=======
 What it does?
 For now, only single target rotation. It checks if you have a target, if the target is in range and if you are in combat, if all true, then it start to enter in the priority defined.
 
@@ -22,17 +33,3 @@ Rotation priority:
 7. Bloodthirst - cast when none of above is true and bloodthirst is out of CD.
 8 - Dragonroar - cast when none of above is true and Dragon Roar is out of CD.
 9 - dont cast anything and try again after 200ms.
-
-INSTALATION
-
-Get autohotkey (google)
-
-Download stfwar.ahk to anywhere.
-
-Get weakauras 2 addon (google)
-
-Copy the string from weakaurasstring into weakauras2 ingame.
-
-Run stfwar.ahk (double click)
-
-press F12 while ingame to activate/desactivate.
