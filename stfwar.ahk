@@ -21,6 +21,7 @@ bloodsurgex := 85 ;~ x of your Bloodsurge white square
 bloodthirstx := 100 ;~ x of your Bloodthirst out of CD white square
 dragonroarx := 115 ;~ x of your Dragon Roar out of CD white square
 combatx := 130 ;~ x of your combat /range / target white square
+executex := 145
 While s
 {
 	PixelGetColor, iswhite, combatx, constanty, RGB
@@ -44,6 +45,14 @@ While s
 			}
 			Else
 				PixelGetColor, iswhite, suddendeathx, constanty, RGB
+				if iswhite = 0xFFFFFF
+				{
+					SendEvent, %hab3%
+					Sleep, %gd%
+					iswhite := 1
+				}
+				Else
+				PixelGetColor, iswhite, executex, constanty, RGB
 				if iswhite = 0xFFFFFF
 				{
 					SendEvent, %hab3%
