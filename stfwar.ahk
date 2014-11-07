@@ -24,6 +24,8 @@ combatx := 130 ;~ x of your combat /range / target white square
 executex := 145
 While s
 {
+	IfWinActive, World, Warcraft,
+	{
 	PixelGetColor, iswhite, combatx, constanty, RGB
 	if iswhite = 0xFFFFFF
 	{
@@ -106,4 +108,7 @@ While s
 	Else
 		Sleep, %gd%
 		iswhite := 1
+	}
+	Else
+	Sleep, 500
 }
