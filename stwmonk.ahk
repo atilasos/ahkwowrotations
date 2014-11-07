@@ -31,6 +31,8 @@ touchofdeathx := 175
 energx := 190
 While s
 {
+	IfWinActive, World of Warcraft
+	{
 	PixelGetColor, iswhite, combatx, constanty, RGB
 	if iswhite = 0xFFFFFF
 	{
@@ -145,4 +147,7 @@ While s
 	Else
 		Sleep, %gd%
 		iswhite := 1
+	}
+	Else
+		Sleep, 500
 }
