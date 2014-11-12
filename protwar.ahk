@@ -5,23 +5,21 @@ s := !s
 ;~you need to set up the hot keys. I have my habilities from 1 to 9 numeric.
 Random, gd, 200, 500 ;~ i had this as 200 before and crashed... i may need to make a random here
 hab1 := 1 ;~ Pummel
-hab2 := 2 ;~ Dragon Roar
-hab3 := 3 ;~ Execute
+hab2 := 2 ;~ Heroic Strike
+hab3 := 3 ;~ Shield Slam
 hab4 := 4 ;~ Revenge
-hab5 := 5 ;~ Shield Slam
+hab5 := 5 ;~ Execute
 hab6 := 6 ;~ Devastate
-hab7 := 7 ;~ Heroic Strike
+hab7 := 7 ;~ Shield Block
 constanty := 5 ;~ set the Y position for your bars
 castbarx := 10 ;~ set the X position for mob cast bar
-enragex := 25 ;~ x of your enrage white square
-suddendeathx := 40 ;~ x of your Sudden Death white square
-alotofragex := 55 ;~ x of your >90 rage white square
-ragingblowx := 70 ;~ x of your Raging Blow white square
-bloodsurgex := 85 ;~ x of your Bloodsurge white square
-bloodthirstx := 100 ;~ x of your Bloodthirst out of CD white square
-dragonroarx := 115 ;~ x of your Dragon Roar out of CD white square
-combatx := 130 ;~ x of your combat /range / target white square
-executex := 145
+hsx := 25 ;~ x of your enrage white square
+ssx := 40 ;~ x of your Sudden Death white square
+revx := 55 ;~ x of your >90 rage white square
+exex := 70 ;~ x of your Raging Blow white square
+devx := 85 ;~ x of your Bloodsurge white square
+sbx := 100
+combatx := 115 ;~ x of your Bloodthirst out of CD white square
 While s
 {
 	IfWinActive, World of Warcraft
@@ -38,72 +36,56 @@ While s
 			iswhite := 1
 		}
 		Else
-			PixelGetColor, iswhite, enragex, constanty, RGB
+			PixelGetColor, iswhite, sbx, constanty, RGB
+			if iswhite = 0xFFFFFF
+			{
+				SendEvent, %hab7%
+				Sleep, %gd%
+				iswhite := 1
+			}
+		Else
+			PixelGetColor, iswhite, hsx, constanty, RGB
 			if iswhite = 0xFFFFFF
 			{
 				SendEvent, %hab2%
 				Sleep, %gd%
 				iswhite := 1
 			}
+		Else
+			PixelGetColor, iswhite, ssx, constanty, RGB
+			if iswhite = 0xFFFFFF
+			{
+				SendEvent, %hab3%
+				Sleep, %gd%
+				iswhite := 1
+			}
 			Else
-				PixelGetColor, iswhite, suddendeathx, constanty, RGB
+				PixelGetColor, iswhite, revx, constanty, RGB
 				if iswhite = 0xFFFFFF
 				{
-					SendEvent, %hab3%
+					SendEvent, %hab4%
 					Sleep, %gd%
 					iswhite := 1
 				}
 				Else
-				PixelGetColor, iswhite, executex, constanty, RGB
-				if iswhite = 0xFFFFFF
-				{
-					SendEvent, %hab3%
-					Sleep, %gd%
-					iswhite := 1
-				}
-				Else
-					PixelGetColor, iswhite, alotofragex, constanty, RGB
+					PixelGetColor, iswhite, exex, constanty, RGB
 					if iswhite = 0xFFFFFF
 					{
-						SendEvent, %hab4%
+						SendEvent, %hab5%
 						Sleep, %gd%
 						iswhite := 1
 					}
 					Else
-						PixelGetColor, iswhite, ragingblowx, constanty, RGB
+						PixelGetColor, iswhite, devx, constanty, RGB
 						if iswhite = 0xFFFFFF
 						{
-							SendEvent, %hab5%
+							SendEvent, %hab6%
 							Sleep, %gd%
 							iswhite := 1
 						}
 						Else
-							PixelGetColor, iswhite, bloodsurgex, constanty, RGB
-							if iswhite = 0xFFFFFF
-							{
-								SendEvent, %hab4%
-								Sleep, %gd%
-								iswhite := 1
-							}
-							Else
-								PixelGetColor, iswhite, bloodthirstx, constanty, RGB
-								if iswhite = 0xFFFFFF
-								{
-									SendEvent, %hab6%
-									Sleep, %gd%
-									iswhite := 1
-								}
-								Else
-								PixelGetColor, iswhite, dragonroarx, constanty, RGB
-								if iswhite = 0xFFFFFF
-								{
-									SendEvent, %hab7%
-									Sleep, %gd%
-									iswhite := 1
-								}
-								Else
-									Sleep, %gd%
-									iswhite := 1
+						Sleep, %gd%
+						iswhite := 1
 	}
 	Else
 		Sleep, %gd%
