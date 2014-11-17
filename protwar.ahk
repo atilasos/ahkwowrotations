@@ -2,8 +2,9 @@
 #MaxThreadsPerHotkey 2
 $F10:: ;press F12 to activate or desactivate
 s := !s
+iswhite = 1
 ;~you need to set up the hot keys. I have my habilities from 1 to 9 numeric.
-Random, gd, 200, 500 ;~ i had this as 200 before and crashed... i may need to make a random here
+Random, gd, 50, 200 ;~ i had this as 200 before and crashed... i may need to make a random here
 hab1 := 1 ;~ Pummel
 hab2 := 2 ;~ Heroic Strike
 hab3 := 3 ;~ Shield Slam
@@ -55,17 +56,29 @@ While s
 			PixelGetColor, iswhite, ssx, constanty, RGB
 			if iswhite = 0xFFFFFF
 			{
+				while iswhite = 0xFFFFFF
+				{
 				SendEvent, %hab3%
 				Sleep, %gd%
 				iswhite := 1
+				PixelGetColor, iswhite, ssx, constanty, RGB
+				}
+				iswhite := 1
+				Sleep, %gd%
 			}
 			Else
 				PixelGetColor, iswhite, revx, constanty, RGB
 				if iswhite = 0xFFFFFF
 				{
-					SendEvent, %hab4%
-					Sleep, %gd%
-					iswhite := 1
+				while iswhite = 0xFFFFFF
+				{
+				SendEvent, %hab4%
+				Sleep, %gd%
+				iswhite := 1
+				PixelGetColor, iswhite, revx, constanty, RGB
+				}
+				iswhite := 1
+				Sleep, %gd%
 				}
 				Else
 					PixelGetColor, iswhite, exex, constanty, RGB
