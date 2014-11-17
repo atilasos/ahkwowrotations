@@ -33,81 +33,105 @@ While s
 		PixelGetColor, iswhite, castbarx, constanty, RGB
 		if iswhite = 0xFFFFFF
 		{
+			While, iswhite = 0xFFFFFF
+			{
 			SendEvent,%hab1%
 			Sleep, %gd%
-			iswhite := 1
+			PixelGetColor, iswhite, castbarx, constanty, RGB
+			}
 		}
 		Else
 			PixelGetColor, iswhite, enragex, constanty, RGB
 			if iswhite = 0xFFFFFF
 			{
+				While, iswhite = 0xFFFFFF
+				{
 				SendEvent, %hab2%
 				Sleep, %gd%
-				iswhite := 1
+				PixelGetColor, iswhite, enragex, constanty, RGB
+				}
 			}
 			Else
 				PixelGetColor, iswhite, suddendeathx, constanty, RGB
 				if iswhite = 0xFFFFFF
 				{
+					While, iswhite = 0xFFFFFF
+					{
 					SendEvent, %hab3%
 					Sleep, %gd%
-					iswhite := 1
+					PixelGetColor, iswhite, suddendeathx, constanty, RGB
+					}
 				}
 				Else
 				PixelGetColor, iswhite, executex, constanty, RGB
 				if iswhite = 0xFFFFFF
 				{
+					While, iswhite = 0xFFFFFF
+					{
 					SendEvent, %hab3%
 					Sleep, %gd%
-					iswhite := 1
+					PixelGetColor, iswhite, executex, constanty, RGB
+					}
 				}
 				Else
 					PixelGetColor, iswhite, alotofragex, constanty, RGB
 					if iswhite = 0xFFFFFF
 					{
+						While, iswhite = 0xFFFFFF
+						{
 						SendEvent, %hab4%
 						Sleep, %gd%
-						iswhite := 1
+						PixelGetColor, iswhite, alotofragex, constanty, RGB
+						}
 					}
 					Else
 						PixelGetColor, iswhite, ragingblowx, constanty, RGB
 						if iswhite = 0xFFFFFF
 						{
+							While, iswhite = 0xFFFFFF
+							{
 							SendEvent, %hab5%
 							Sleep, %gd%
-							iswhite := 1
+							PixelGetColor, iswhite, ragingblowx, constanty, RGB
+							}
 						}
 						Else
 							PixelGetColor, iswhite, bloodsurgex, constanty, RGB
 							if iswhite = 0xFFFFFF
 							{
+								While, iswhite = 0xFFFFFF
+								{
 								SendEvent, %hab4%
 								Sleep, %gd%
-								iswhite := 1
+								PixelGetColor, iswhite, bloodsurgex, constanty, RGB
+								}
 							}
 							Else
 								PixelGetColor, iswhite, bloodthirstx, constanty, RGB
 								if iswhite = 0xFFFFFF
 								{
+									While, iswhite = 0xFFFFFF
+									{
 									SendEvent, %hab6%
 									Sleep, %gd%
-									iswhite := 1
+									PixelGetColor, iswhite, bloodthirstx, constanty, RGB
+									}
 								}
 								Else
 								PixelGetColor, iswhite, dragonroarx, constanty, RGB
 								if iswhite = 0xFFFFFF
 								{
+									While, iswhite = 0xFFFFFF
+									{
 									SendEvent, %hab7%
 									Sleep, %gd%
-									iswhite := 1
+									PixelGetColor, iswhite, dragonroarx, constanty, RGB
+									}
 								}
 								Else
-									Sleep, %gd%
-									iswhite := 1
+								Sleep, 500
+								iswhite := 1
 	}
-	Else
-		Sleep, %gd%
-		iswhite := 1
 	}
 	Else
 	Sleep, 500
