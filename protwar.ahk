@@ -1,10 +1,9 @@
 ;~Single target Fury Warrior Rotation
 #MaxThreadsPerHotkey 2
-$F10:: ;press F12 to activate or desactivate
+$F11:: ;press F12 to activate or desactivate
 s := !s
-iswhite = 1
 ;~you need to set up the hot keys. I have my habilities from 1 to 9 numeric.
-Random, gd, 50, 200 ;~ i had this as 200 before and crashed... i may need to make a random here
+Random, gd, 400, 800 ;~ i had this as 200 before and crashed... i may need to make a random here
 hab1 := 1 ;~ Pummel
 hab2 := 2 ;~ Heroic Strike
 hab3 := 3 ;~ Shield Slam
@@ -25,84 +24,79 @@ While s
 {
 	IfWinActive, World of Warcraft
 	{
-	PixelGetColor, iswhite, combatx, constanty, RGB
-	if iswhite = 0xFFFFFF
-	{
-		iswhite := 1
-		PixelGetColor, iswhite, castbarx, constanty, RGB
-		if iswhite = 0xFFFFFF
+		PixelGetColor, combatwhite, combatx, constanty, RGB
+		While, combatwhite = 0xFFFFFF
 		{
-			SendEvent,%hab1%
-			Sleep, %gd%
-			iswhite := 1
-		}
-		Else
+			PixelGetColor, iswhite, castbarx, constanty, RGB
+			if iswhite = 0xFFFFFF
+			{
+				While, iswhite = 0xFFFFFF
+				{
+				SendEvent,%hab1%
+				Sleep, %gd%
+				PixelGetColor, iswhite, castbarx, constanty, RGB
+				}
+			}
+			Else
 			PixelGetColor, iswhite, sbx, constanty, RGB
 			if iswhite = 0xFFFFFF
 			{
+				While, iswhite = 0xFFFFFF
+				{
 				SendEvent, %hab7%
 				Sleep, %gd%
-				iswhite := 1
-			}
-		Else
-			PixelGetColor, iswhite, hsx, constanty, RGB
-			if iswhite = 0xFFFFFF
-			{
-				SendEvent, %hab2%
-				Sleep, %gd%
-				iswhite := 1
-			}
-		Else
-			PixelGetColor, iswhite, ssx, constanty, RGB
-			if iswhite = 0xFFFFFF
-			{
-				while iswhite = 0xFFFFFF
-				{
-				SendEvent, %hab3%
-				Sleep, %gd%
-				iswhite := 1
-				PixelGetColor, iswhite, ssx, constanty, RGB
+				PixelGetColor, iswhite, sbx, constanty, RGB
 				}
-				iswhite := 1
-				Sleep, %gd%
 			}
+			Else
+				PixelGetColor, iswhite, hsx, constanty, RGB
+				if iswhite = 0xFFFFFF
+				{
+					While, iswhite = 0xFFFFFF
+					{
+					SendEvent, %hab2%
+					Sleep, %gd%
+					PixelGetColor, iswhite, hsx, constanty, RGB
+					}
+				}
+			Else
+				PixelGetColor, iswhite, ssx, constanty, RGB
+				if iswhite = 0xFFFFFF
+				{
+					while iswhite = 0xFFFFFF
+					{
+					SendEvent, %hab3%
+					Sleep, %gd%
+					PixelGetColor, iswhite, ssx, constanty, RGB
+					}
+				}
 			Else
 				PixelGetColor, iswhite, revx, constanty, RGB
 				if iswhite = 0xFFFFFF
 				{
-				while iswhite = 0xFFFFFF
-				{
-				SendEvent, %hab4%
-				Sleep, %gd%
-				iswhite := 1
-				PixelGetColor, iswhite, revx, constanty, RGB
-				}
-				iswhite := 1
-				Sleep, %gd%
-				}
-				Else
-					PixelGetColor, iswhite, exex, constanty, RGB
-					if iswhite = 0xFFFFFF
+					while iswhite = 0xFFFFFF
 					{
-						SendEvent, %hab5%
-						Sleep, %gd%
-						iswhite := 1
+					SendEvent, %hab4%
+					Sleep, %gd%
+					PixelGetColor, iswhite, revx, constanty, RGB
 					}
-					Else
-						PixelGetColor, iswhite, devx, constanty, RGB
-						if iswhite = 0xFFFFFF
-						{
-							SendEvent, %hab6%
-							Sleep, %gd%
-							iswhite := 1
-						}
-						Else
-						Sleep, %gd%
-						iswhite := 1
-	}
-	Else
-		Sleep, %gd%
-		iswhite := 1
+				}
+			Else
+				PixelGetColor, iswhite, exex, constanty, RGB
+				if iswhite = 0xFFFFFF
+				{
+					While, iswhite = 0xFFFFFF
+					{
+					SendEvent, %hab5%
+					Sleep, %gd%
+					PixelGetColor, iswhite, exex, constanty, RGB
+					}
+				}
+			Else
+			SendEvent, %hab6%
+			Sleep, %gd%
+			PixelGetColor, combatwhite, combatx, constanty, RGB
+		}
 	}
 	Else
 	Sleep, 500
