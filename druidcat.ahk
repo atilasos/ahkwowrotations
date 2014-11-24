@@ -15,12 +15,10 @@ hab6 := 6 ;~ Devastate
 hab7 := 7 ;~ Shield Block
 constanty := 5 ;~ set the Y position for your bars
 castbarx := 10 ;~ set the X position for mob cast bar
-hsx := 25 ;~ x of your enrage white square
-ssx := 40 ;~ x of your Sudden Death white square
-revx := 55 ;~ x of your >90 rage white square
-exex := 70 ;~ x of your Raging Blow white square
-devx := 85 ;~ x of your Bloodsurge white square
-sbx := 100
+rake := 25 ;~ x of your enrage white square
+rip := 40 ;~ x of your >90 rage white square
+fbfim := 55 ;~ x of your Raging Blow white square
+fbsmp := 70 ;~ x of your Bloodsurge white square
 combatx := 115 ;~ x of your Bloodthirst out of CD white square
 While s
 {
@@ -41,67 +39,55 @@ While s
 				Sleep, %gcd%
 			}
 			Else
-			PixelGetColor, iswhite, sbx, constanty, RGB
+			PixelGetColor, iswhite, rake, constanty, RGB
 			if iswhite = 0xFFFFFF
 			{
 				While, iswhite = 0xFFFFFF
 				{
-				SendEvent, %hab7%
+				SendEvent, %hab2%
 				Sleep, %gd%
-				PixelGetColor, iswhite, sbx, constanty, RGB
+				PixelGetColor, iswhite, rake, constanty, RGB
 				}
 				Sleep, %gcd%
 			}
 			Else
-				PixelGetColor, iswhite, hsx, constanty, RGB
-				if iswhite = 0xFFFFFF
-				{
-					While, iswhite = 0xFFFFFF
-					{
-					SendEvent, %hab2%
-					Sleep, %gd%
-					PixelGetColor, iswhite, hsx, constanty, RGB
-					}
-					Sleep, %gcd%
-				}
-			Else
-				PixelGetColor, iswhite, ssx, constanty, RGB
-				if iswhite = 0xFFFFFF
-				{
-					while iswhite = 0xFFFFFF
-					{
-					SendEvent, %hab3%
-					Sleep, %gd%
-					PixelGetColor, iswhite, ssx, constanty, RGB
-					}
-					Sleep, %gcd%
-				}
-			Else
-				PixelGetColor, iswhite, revx, constanty, RGB
+				PixelGetColor, iswhite, rip, constanty, RGB
 				if iswhite = 0xFFFFFF
 				{
 					while iswhite = 0xFFFFFF
 					{
 					SendEvent, %hab4%
 					Sleep, %gd%
-					PixelGetColor, iswhite, revx, constanty, RGB
+					PixelGetColor, iswhite, rip, constanty, RGB
 					}
 					Sleep, %gcd%
 				}
 			Else
-				PixelGetColor, iswhite, exex, constanty, RGB
+				PixelGetColor, iswhite, fbfim, constanty, RGB
+				if iswhite = 0xFFFFFF
+				{
+					while iswhite = 0xFFFFFF
+					{
+					SendEvent, %hab5%
+					Sleep, %gd%
+					PixelGetColor, iswhite, fbfim, constanty, RGB
+					}
+					Sleep, %gcd%
+				}
+			Else
+				PixelGetColor, iswhite, fbsmp, constanty, RGB
 				if iswhite = 0xFFFFFF
 				{
 					While, iswhite = 0xFFFFFF
 					{
 					SendEvent, %hab5%
 					Sleep, %gd%
-					PixelGetColor, iswhite, exex, constanty, RGB
+					PixelGetColor, iswhite, fbsmp, constanty, RGB
 					}
 					Sleep, %gcd%
 				}
 			Else
-			SendEvent, %hab6%
+			SendEvent, %hab3%
 			Sleep, %gd%
 			PixelGetColor, combatwhite, combatx, constanty, RGB
 		}
