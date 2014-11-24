@@ -19,7 +19,9 @@ rake := 25 ;~ x of your enrage white square
 rip := 40 ;~ x of your >90 rage white square
 fbfim := 55 ;~ x of your Raging Blow white square
 fbsmp := 70 ;~ x of your Bloodsurge white square
+builder := 85
 combatx := 115 ;~ x of your Bloodthirst out of CD white square
+
 While s
 {
 	IfWinActive, World of Warcraft
@@ -75,7 +77,7 @@ While s
 					Sleep, %gcd%
 				}
 			Else
-				PixelGetColor, iswhite, fbsmp, constanty, RGB
+			PixelGetColor, iswhite, fbsmp, constanty, RGB
 				if iswhite = 0xFFFFFF
 				{
 					While, iswhite = 0xFFFFFF
@@ -87,7 +89,18 @@ While s
 					Sleep, %gcd%
 				}
 			Else
-			SendEvent, %hab3%
+				PixelGetColor, iswhite, builder, constanty, RGB
+				if iswhite = 0xFFFFFF
+				{
+					While, iswhite = 0xFFFFFF
+					{
+					SendEvent, %hab3%
+					Sleep, %gd%
+					PixelGetColor, iswhite, builder, constanty, RGB
+					}
+					Sleep, %gcd%
+				}
+			Else
 			Sleep, %gd%
 			PixelGetColor, combatwhite, combatx, constanty, RGB
 		}
