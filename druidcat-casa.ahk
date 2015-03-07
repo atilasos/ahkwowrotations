@@ -33,11 +33,12 @@ While s
 			PixelGetColor, iswhite, castbarx, constanty, RGB
 			if iswhite = 0xFFFFFF
 			{
-				While, iswhite = 0xFFFFFF
+				While, iswhite = 0xFFFFFF And combatwhite = 0xFFFFFF
 				{
 				SendEvent,%hab1%
 				Sleep, %gd%
 				PixelGetColor, iswhite, castbarx, constanty, RGB
+				PixelGetColor, combatwhite, combatx, constanty, RGB
 				}
 				Sleep, %gcd%
 			}
@@ -45,11 +46,12 @@ While s
 			PixelGetColor, iswhite, buff, constanty, RGB
 			if iswhite = 0xFFFFFF
 			{
-				While, iswhite = 0xFFFFFF
+				While, iswhite = 0xFFFFFF And combatwhite = 0xFFFFFF
 				{
 				SendEvent, %hab6%
 				Sleep, %gd%
 				PixelGetColor, iswhite, buff, constanty, RGB
+				PixelGetColor, combatwhite, combatx, constanty, RGB
 				}
 				Sleep, %gcd%
 			}
@@ -57,11 +59,12 @@ While s
 			PixelGetColor, iswhite, rake, constanty, RGB
 			if iswhite = 0xFFFFFF
 			{
-				While, iswhite = 0xFFFFFF
+				While, iswhite = 0xFFFFFF And combatwhite = 0xFFFFFF
 				{
 				SendEvent, %hab2%
 				Sleep, %gd%
 				PixelGetColor, iswhite, rake, constanty, RGB
+				PixelGetColor, combatwhite, combatx, constanty, RGB
 				}
 				Sleep, %gcd%
 			}
@@ -69,11 +72,12 @@ While s
 				PixelGetColor, iswhite, rip, constanty, RGB
 				if iswhite = 0xFFFFFF
 				{
-					while iswhite = 0xFFFFFF
+					while iswhite = 0xFFFFFF And combatwhite = 0xFFFFFF
 					{
 					SendEvent, %hab4%
 					Sleep, %gd%
 					PixelGetColor, iswhite, rip, constanty, RGB
+					PixelGetColor, combatwhite, combatx, constanty, RGB
 					}
 					Sleep, %gcd%
 				}
@@ -81,11 +85,12 @@ While s
 				PixelGetColor, iswhite, fbfim, constanty, RGB
 				if iswhite = 0xFFFFFF
 				{
-					while iswhite = 0xFFFFFF
+					while iswhite = 0xFFFFFF And combatwhite = 0xFFFFFF
 					{
 					SendEvent, %hab5%
 					Sleep, %gd%
 					PixelGetColor, iswhite, fbfim, constanty, RGB
+					PixelGetColor, combatwhite, combatx, constanty, RGB
 					}
 					Sleep, %gcd%
 				}
@@ -93,11 +98,12 @@ While s
 			PixelGetColor, iswhite, fbsmp, constanty, RGB
 				if iswhite = 0xFFFFFF
 				{
-					While, iswhite = 0xFFFFFF
+					While, iswhite = 0xFFFFFF And combatwhite = 0xFFFFFF
 					{
 					SendEvent, %hab5%
 					Sleep, %gd%
 					PixelGetColor, iswhite, fbsmp, constanty, RGB
+					PixelGetColor, combatwhite, combatx, constanty, RGB
 					}
 					Sleep, %gcd%
 				}
@@ -105,11 +111,12 @@ While s
 				PixelGetColor, iswhite, builder, constanty, RGB
 				if iswhite = 0xFFFFFF
 				{
-					While, iswhite = 0xFFFFFF
+					While, iswhite = 0xFFFFFF And combatwhite = 0xFFFFFF
 					{
 					SendEvent, %hab3%
 					Sleep, %gd%
 					PixelGetColor, iswhite, builder, constanty, RGB
+					PixelGetColor, combatwhite, combatx, constanty, RGB
 					}
 					Sleep, %gcd%
 				}
