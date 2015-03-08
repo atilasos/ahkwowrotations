@@ -16,12 +16,12 @@ hab7 := 7 ;~ Shield Block
 constanty := 5 ;~ set the Y position for your bars
 castbarx := 10 ;~ set the X position for mob cast bar
 hsx := 25 ;~ x of your enrage white square
-ssx := 40 ;~ x of your Sudden Death white square
-revx := 55 ;~ x of your >90 rage white square
-exex := 70 ;~ x of your Raging Blow white square
-devx := 85 ;~ x of your Bloodsurge white square
-sbx := 100
-combatx := 115 ;~ x of your Bloodthirst out of CD white square
+ssx := 45 ;~ x of your Sudden Death white square
+revx := 60 ;~ x of your >90 rage white square
+exex := 77 ;~ x of your Raging Blow white square
+devx := 95 ;~ x of your Bloodsurge white square
+sbx := 110
+combatx := 127 ;~ x of your Bloodthirst out of CD white square
 While s
 {
 	IfWinActive, World of Warcraft
