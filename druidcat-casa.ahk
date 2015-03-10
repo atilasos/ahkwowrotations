@@ -22,6 +22,7 @@ fbsmp := 77 ;~ x of your Bloodsurge white square
 builder := 95
 buff := 110
 combatx := 128 ;~ x of your Bloodthirst out of CD white square
+moonfire := 145
 
 While s
 {
@@ -40,7 +41,6 @@ While s
 				PixelGetColor, iswhite, castbarx, constanty, RGB
 				PixelGetColor, combatwhite, combatx, constanty, RGB
 				}
-				Sleep, %gcd%
 			}
 			Else
 			PixelGetColor, iswhite, buff, constanty, RGB
@@ -48,12 +48,11 @@ While s
 			{
 				While, iswhite = 0xFFFFFF And combatwhite = 0xFFFFFF
 				{
-				SendEvent, %hab6%
+				SendEvent, %hab5%
 				Sleep, %gd%
 				PixelGetColor, iswhite, buff, constanty, RGB
 				PixelGetColor, combatwhite, combatx, constanty, RGB
 				}
-				Sleep, %gcd%
 			}
 			Else
 			PixelGetColor, iswhite, rake, constanty, RGB
@@ -66,7 +65,6 @@ While s
 				PixelGetColor, iswhite, rake, constanty, RGB
 				PixelGetColor, combatwhite, combatx, constanty, RGB
 				}
-				Sleep, %gcd%
 			}
 			Else
 				PixelGetColor, iswhite, rip, constanty, RGB
@@ -79,7 +77,18 @@ While s
 					PixelGetColor, iswhite, rip, constanty, RGB
 					PixelGetColor, combatwhite, combatx, constanty, RGB
 					}
-					Sleep, %gcd%
+				}
+				Else
+				PixelGetColor, iswhite, moonfire, constanty, RGB
+				if iswhite = 0xFFFFFF
+				{
+					while iswhite = 0xFFFFFF And combatwhite = 0xFFFFFF
+					{
+					SendEvent, %hab7%
+					Sleep, %gd%
+					PixelGetColor, iswhite, moonfire, constanty, RGB
+					PixelGetColor, combatwhite, combatx, constanty, RGB
+					}
 				}
 			Else
 				PixelGetColor, iswhite, fbfim, constanty, RGB
@@ -92,7 +101,6 @@ While s
 					PixelGetColor, iswhite, fbfim, constanty, RGB
 					PixelGetColor, combatwhite, combatx, constanty, RGB
 					}
-					Sleep, %gcd%
 				}
 			Else
 			PixelGetColor, iswhite, fbsmp, constanty, RGB
@@ -105,7 +113,6 @@ While s
 					PixelGetColor, iswhite, fbsmp, constanty, RGB
 					PixelGetColor, combatwhite, combatx, constanty, RGB
 					}
-					Sleep, %gcd%
 				}
 			Else
 				PixelGetColor, iswhite, builder, constanty, RGB
@@ -118,10 +125,9 @@ While s
 					PixelGetColor, iswhite, builder, constanty, RGB
 					PixelGetColor, combatwhite, combatx, constanty, RGB
 					}
-					Sleep, %gcd%
 				}
 			Else
-			Sleep, %gd%
+			Sleep, %gcd%
 			PixelGetColor, combatwhite, combatx, constanty, RGB
 		}
 	}

@@ -4,8 +4,8 @@
 $F12:: ;press F12 to activate or desactivate
 s := !s
 ;~you need to set up the hot keys. I have my habilities from 1 to 9 numeric.
-Random, gd, 400, 500 ;~ i had this as 200 before and crashed... i may need to make a random here
-Random, gcd, 600, 1200
+Random, gd, 150, 250 ;~ i had this as 200 before and crashed... i may need to make a random here
+Random, gcd, 300, 500
 hab1 := 1 ;~ Pummel
 hab2 := 2 ;~ Heroic Strike
 hab3 := 3 ;~ Shield Slam
@@ -41,7 +41,6 @@ While s
 				PixelGetColor, iswhite, castbarx, constanty, RGB
 				PixelGetColor, combatwhite, combatx, constanty, RGB
 				}
-				Sleep, %gcd%
 			}
 			Else
 			PixelGetColor, iswhite, buff, constanty, RGB
@@ -54,7 +53,6 @@ While s
 				PixelGetColor, iswhite, buff, constanty, RGB
 				PixelGetColor, combatwhite, combatx, constanty, RGB
 				}
-				Sleep, %gcd%
 			}
 			Else
 			PixelGetColor, iswhite, rake, constanty, RGB
@@ -67,7 +65,6 @@ While s
 				PixelGetColor, iswhite, rake, constanty, RGB
 				PixelGetColor, combatwhite, combatx, constanty, RGB
 				}
-				Sleep, %gcd%
 			}
 			Else
 				PixelGetColor, iswhite, rip, constanty, RGB
@@ -80,7 +77,6 @@ While s
 					PixelGetColor, iswhite, rip, constanty, RGB
 					PixelGetColor, combatwhite, combatx, constanty, RGB
 					}
-					Sleep, %gcd%
 				}
 				Else
 				PixelGetColor, iswhite, moonfire, constanty, RGB
@@ -93,7 +89,6 @@ While s
 					PixelGetColor, iswhite, moonfire, constanty, RGB
 					PixelGetColor, combatwhite, combatx, constanty, RGB
 					}
-					Sleep, %gcd%
 				}
 			Else
 				PixelGetColor, iswhite, fbfim, constanty, RGB
@@ -106,7 +101,6 @@ While s
 					PixelGetColor, iswhite, fbfim, constanty, RGB
 					PixelGetColor, combatwhite, combatx, constanty, RGB
 					}
-					Sleep, %gcd%
 				}
 			Else
 			PixelGetColor, iswhite, fbsmp, constanty, RGB
@@ -119,7 +113,6 @@ While s
 					PixelGetColor, iswhite, fbsmp, constanty, RGB
 					PixelGetColor, combatwhite, combatx, constanty, RGB
 					}
-					Sleep, %gcd%
 				}
 			Else
 				PixelGetColor, iswhite, builder, constanty, RGB
@@ -132,10 +125,9 @@ While s
 					PixelGetColor, iswhite, builder, constanty, RGB
 					PixelGetColor, combatwhite, combatx, constanty, RGB
 					}
-					Sleep, %gcd%
 				}
 			Else
-			Sleep, %gd%
+			Sleep, %gcd%
 			PixelGetColor, combatwhite, combatx, constanty, RGB
 		}
 	}
