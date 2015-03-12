@@ -4,7 +4,7 @@
 $F12:: ;press F12 to activate or desactivate
 s := !s
 ;~you need to set up the hot keys. I have my habilities from 1 to 9 numeric.
-Random, gd, 200, 500 ;~ i had this as 200 before and crashed... i may need to make a random here
+Random, gd, 150, 250 ;~ i had this as 200 before and crashed... i may need to make a random here
 Random, gcd, 300, 600
 hab1 := 1 ;~ Pummel
 hab2 := 2 ;~ Heroic Strike
