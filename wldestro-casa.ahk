@@ -66,7 +66,7 @@ While s
 				PixelGetColor, iswhite, chaosbolt, constanty, RGB
 				if iswhite = 0xFFFFFF
 				{
-					if iswhite = 0xFFFFFF And combatwhite = 0xFFFFFF
+					While, iswhite = 0xFFFFFF And combatwhite = 0xFFFFFF
 					{
 					SendEvent, %hab4%
 					Sleep, 1000
